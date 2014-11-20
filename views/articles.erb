@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basic HTML Page</title>
+    <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+<h1>Welcome to SlaCker NeWs </h1>
+
+<h3>Your Daily SlaCker NeWs </h3>
+    <a href="/articles/new"><%= "Post New Article" %></a>
+      <ul>
+      <%@csv_file.each do |news|%>
+      <%elements = news.split(",")%>
+      <li>
+        <%="Title: "  + elements[0]%>
+      </li>
+      <li>
+        <%="URL: "%>
+        <a href="http://<%= elements[1] %>"><%= elements[1] %></a>
+      </li>
+      <li>
+      <%="Description: " + elements[2]%>
+      </li>
+      <br>
+      </br>
+      <%end%>
+      <li>
+      <a href =<%= "/" %>><%= "Back to Homepage" %></a>
+      </li>
+</ul>
+</body>

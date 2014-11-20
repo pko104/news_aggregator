@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basic HTML Page</title>
+    <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+<h3>Post your article</h3>
+
+<% if @error_messages %>
+  <ul class="error">
+    <% @error_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<div>
+  <form method="post" action="/articles">
+    <div>
+
+      <label for="Title">Title:</label>
+      <input type="text" id="title" placeholder="Article Title" name="title" value="<%= @title %>">
+    </div>
+    <br></br>
+    <div>
+      <label for="Url">URL:</label>
+      <input type="text" id="url" name="url" placeholder="Website URL" value="<%= @url %>">
+    </div>
+     <br></br>
+      <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" placeholder="Description"name="description" value="<%= @description %>">
+    </div>
+     <br></br>
+    <div>
+      <input type="submit" value="Post article">
+    </div>
+  </form>
+</div>
+
+</body>
